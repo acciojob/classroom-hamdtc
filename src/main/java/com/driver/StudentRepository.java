@@ -90,6 +90,8 @@ public class StudentRepository {
                 stds.remove(s);
             }
         }
+        stdTeacher.clear();
+        stds.clear();
         teachers.clear();
     }
 
