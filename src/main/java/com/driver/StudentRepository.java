@@ -13,9 +13,15 @@ import java.util.List;
 @Repository
 public class StudentRepository {
 
-    HashMap<String, Student> stds = new HashMap<>();
-    HashMap<String, Teacher> teachers = new HashMap<>();
-    HashMap<String,List<String>> stdTeacher = new HashMap<>();
+    HashMap<String, Student> stds;
+    HashMap<String, Teacher> teachers;
+    HashMap<String,List<String>> stdTeacher;
+
+    public StudentRepository() {
+        this.stds = new HashMap<>();
+       this.teachers = new HashMap<>();
+         this.stdTeacher = new HashMap<>();
+    }
 
     public void addStudents(Student student){
         stds.put(student.getName(),student);
@@ -70,11 +76,11 @@ public class StudentRepository {
         if(stdTeacher.containsKey(teacher)){
 
             List<String> studs=stdTeacher.get(teacher);
-//            for(String sts:studs){
-//                stds.remove(sts);
-//            }
+            for(String sts:studs){
+                stds.remove(sts);
+            }
             teachers.remove(teacher);
-           // stdTeacher.remove(teacher);
+           stdTeacher.remove(teacher);
         }
     }
     public void deleteAllTeachers(){
