@@ -86,11 +86,11 @@ public class StudentRepository {
         if(stdTeacher.containsKey(teacher)){
 
             List<String> studs=stdTeacher.get(teacher);
-//            for(String sts:studs){
-//                stds.remove(sts);
-//            }
+            for(String sts:studs){
+                stds.remove(sts);
+            }
             teachers.remove(teacher);
-           //stdTeacher.remove(teacher);
+           stdTeacher.remove(teacher);
         }
     }
     public void deleteAllTeachers(){
@@ -107,7 +107,7 @@ public class StudentRepository {
             }
         }
         stdTeacher.clear();
-        stds.clear();
+        //stds.clear();
         teachers.clear();
     }
 
