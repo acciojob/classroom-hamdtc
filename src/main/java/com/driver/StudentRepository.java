@@ -32,18 +32,28 @@ public class StudentRepository {
 
     // add std and teachers
     public void addStudentTeacher(String stdName, String teacherName){
-        if(!stdTeacher.containsKey(teacherName)){
-            List<String> newList=stdTeacher.get(teacherName);
-            newList.add(stdName);
-            stdTeacher.remove(teacherName);
-            stdTeacher.put(teacherName,newList);
-        }else{
-            List<String> stdList=new ArrayList<>();
-            stdList.add(stdName);
-            stdTeacher.put(teacherName,stdList);
+        if(stds.containsKey(stdName) && teachers.containsKey(teacherName)) {
+            stds.put(stdName, stds.get(stdName));
+            teachers.put(teacherName, teachers.get(teacherName));
+            List<String> pair = new ArrayList<>();
+            if(stdTeacher.containsKey(teacherName))
+                pair=stdTeacher.get(teacherName);
+            pair.add(stdName);
+            stdTeacher.put(teacherName,pair);
         }
-
     }
+//        if(!stdTeacher.containsKey(teacherName)){
+//            List<String> newList=stdTeacher.get(teacherName);
+//            newList.add(stdName);
+//            stdTeacher.remove(teacherName);
+//            stdTeacher.put(teacherName,newList);
+//        }else{
+//            List<String> stdList=new ArrayList<>();
+//            stdList.add(stdName);
+//            stdTeacher.put(teacherName,stdList);
+//        }
+//
+//    }
     public Student getStudent(String stdName){
         return stds.get(stdName);
     }
